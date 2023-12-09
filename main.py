@@ -14,7 +14,6 @@ def main():
     # последовательность всех таблиц документа
     all_tables = doc.tables
 
-    #print(iter_tables(all_tables))
     list_add_table = []
     for tab in all_tables:
         for n_table in iter_tables(tab):
@@ -22,8 +21,6 @@ def main():
             print("found a nested table %s" % n_table)
 
     all_tables = all_tables + list_add_table
-
-    print(all_tables)
 
     print('Всего таблиц в документе:', len(all_tables))
 
@@ -42,8 +39,6 @@ def main():
                 # список, созданного словаря под данные таблиц
                 data_tables[i][j].append(cell.text)
 
-        # смотрим извлеченные данные
-        # (по строкам) для таблицы `i`
         print(data_tables[i])
         print('\n')
 
