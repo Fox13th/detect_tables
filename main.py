@@ -1,3 +1,6 @@
+import os
+import pathlib
+
 from docx import Document
 
 
@@ -46,5 +49,24 @@ def main():
     print(data_tables)
 
 
+def long_name_file(path_name):
+    path_name = f'{path_name}'
+    return path_name
+
+
 if __name__ == "__main__":
-    main()
+    path = "C:\\Users\\deanw\\PycharmProjects\\pythonProject\\Users\\попова\\Desktop\\с рабочего стола " \
+           "12.12.2019\\Возражения\\ДЖКХ\\Для нач отдела\\из папки " \
+           "Махдиева\\УДС\\ЖКХ нормативные акты по нормативам "
+    path_name = long_name_file(path)
+    pathlib.Path(path_name).mkdir(parents=True, exist_ok=True)
+
+    path_name = os.path.join(path_name, "Пост Адм Ростова нД от 29.01.2016 N 72 Об утв треб к порядку разр и принятия мун правовых актов о нормировании.docx")
+    print(path_name)
+    #pathlib.Path(path_name).rename('.\\1\\Пост Адм Ростова нД от 29.01.2016 N 72 Об утв треб к порядку разр и принятия мун правовых актов о нормировании.docx')
+    os.rename(
+        f'{path_name}',
+        '.\\1\\Пост Адм Ростова нД от 29.01.2016 N 72 Об утв треб к порядку разр и принятия мун правовых актов о нормировании.docx')
+    #main()
+
+#https://habr.com/ru/articles/307186/
